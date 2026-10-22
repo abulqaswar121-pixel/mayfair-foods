@@ -9,6 +9,10 @@ npm install
 npm run dev
 ```
 
+The dev server binds `0.0.0.0` on port **8080** so hosted preview sandboxes
+(Lovable, Cloudflare-style tunnels, containers) can reach it. Set `PORT` to use a
+different port, for example `PORT=5173 npm run dev`.
+
 Production build:
 
 ```bash
