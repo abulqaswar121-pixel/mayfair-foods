@@ -3,7 +3,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 function initHeader() {
   const header = document.querySelector("[data-site-header]");
   const toggle = document.querySelector("[data-menu-toggle]");
-  const menu = document.querySelector("[data-mobile-menu]");
+  const menu = document.querySelector("[data-nav-panel]");
   if (!header) return;
 
   const updateHeader = () => header.classList.toggle("is-scrolled", window.scrollY > 24);
@@ -75,9 +75,6 @@ function initHeader() {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") close(true);
   });
-  window.addEventListener("resize", () => {
-    if (window.innerWidth >= 1120 && toggle.getAttribute("aria-expanded") === "true") close();
-  });
 }
 
 function initReveals() {
@@ -132,11 +129,26 @@ function initTabs() {
 
 function initBookingLinks() {
   const group = document.querySelector("#booking-tabs");
-  if (!group) return;
+  if (group) {
+    // Deep link: /reserve.html?booking=room opens that form directly.
+    const requested = new URLSearchParams(window.location.search).get("booking");
+    if (requested && document.querySelector(`#booking-${requested}`)) {
+      activateTabs(group, `booking-${requested}`);
+    }
+  }
   document.querySelectorAll("[data-booking]").forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
+      // Everywhere else the link is a plain URL; let the browser follow it.
+      if (!group) return;
+      event.preventDefault();
       const type = link.dataset.booking;
       activateTabs(group, `booking-${type}`);
+      try {
+        history.replaceState(null, "", `?booking=${type}`);
+      } catch {
+        // file:// previews reject replaceState; the tab still switches.
+      }
+      group.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
       if (link.dataset.room) {
         const select = document.querySelector("#room-type");
         if (select) {
@@ -284,21 +296,6 @@ function initCarousel() {
   start();
 }
 
-function initActiveNavigation() {
-  if (!("IntersectionObserver" in window)) return;
-  const links = [...document.querySelectorAll(".desktop-nav a")];
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      links.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`));
-    });
-  }, { rootMargin: "-20% 0px -68%", threshold: 0 });
-  links.forEach((link) => {
-    const target = document.querySelector(link.getAttribute("href"));
-    if (target) observer.observe(target);
-  });
-}
-
 export function initUI() {
   initHeader();
   initReveals();
@@ -307,5 +304,4 @@ export function initUI() {
   initRoomGalleries();
   initLightbox();
   initCarousel();
-  initActiveNavigation();
 }

@@ -2,6 +2,11 @@
 
 A mobile-first static website for a five-part hospitality concept: Restaurant, Open Lounge Bar, VVIP Bar, Snooker Lounge and Hotel Rooms. Built with semantic HTML, modern CSS and dependency-free browser JavaScript; bundled with Vite for Netlify.
 
+The site is a short home page plus one focused page per experience, so nothing
+important is buried under a long scroll. A single hamburger panel — identical at
+every screen size — holds all navigation. Dark is the default theme, with a
+switch in the header and the visitor's choice remembered.
+
 ## Quick start
 
 ```bash
@@ -104,7 +109,15 @@ Connect the repository to Netlify and deploy. You can also deploy the generated 
 
 ```text
 site.config.js              Central business details and hours
-index.html                  Main content, SEO, schema and Netlify forms
+index.html                  Home: hero, experiences, weekly nights, notes, CTA
+restaurant.html             Restaurant, photo mosaic and the full menu
+open-lounge.html            Open Lounge Bar
+vvip.html                   VVIP Bar
+snooker.html                Snooker Lounge
+rooms.html                  The three hotel rooms
+gallery.html                Full photo gallery
+contact.html                Map, contact details and live opening hours
+reserve.html                The three reservation / enquiry forms
 404.html                    Branded not-found page
 thanks.html                 No-JavaScript Netlify success page
 src/styles.css              Responsive luxury theme, dark + light palettes
