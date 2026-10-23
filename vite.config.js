@@ -15,6 +15,20 @@ const address = {
 const social = Object.values(site.social).filter(Boolean);
 const heroImage = `${cleanUrl}/assets/images/og-image.jpg`;
 
+// Every page lives in its own HTML file; the sitemap and the Rollup inputs are
+// both built from this list so they cannot drift apart.
+const sitePages = [
+  "index.html",
+  "restaurant.html",
+  "open-lounge.html",
+  "vvip.html",
+  "snooker.html",
+  "rooms.html",
+  "gallery.html",
+  "contact.html",
+  "reserve.html",
+];
+
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -76,7 +90,9 @@ const generatedFiles = {
   },
   "/sitemap.xml": {
     type: "application/xml; charset=utf-8",
-    source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${cleanUrl}/</loc></url>\n</urlset>\n`,
+    source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitePages
+      .map((page) => `  <url><loc>${cleanUrl}/${page === "index.html" ? "" : page}</loc></url>`)
+      .join("\n")}\n</urlset>\n`,
   },
   "/site.webmanifest": {
     type: "application/manifest+json; charset=utf-8",
@@ -173,6 +189,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, "index.html"),
+        ...Object.fromEntries(
+          sitePages.slice(1).map((page) => [page.replace(".html", ""), resolve(import.meta.dirname, page)]),
+        ),
         notFound: resolve(import.meta.dirname, "404.html"),
         thanks: resolve(import.meta.dirname, "thanks.html"),
       },

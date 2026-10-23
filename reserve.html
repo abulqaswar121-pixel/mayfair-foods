@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en-NG" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservations | %%SITE_NAME%%</title>
+    <meta name="description" content="Request a table, a room or a private experience at %%SITE_NAME%%. Personal confirmation, no payment and no obligation." />
+    <meta name="theme-color" content="#0b0b0a" />
+    <meta name="color-scheme" content="dark light" />
+    <script>
+      // Apply a remembered theme before first paint, so light-theme
+      // visitors never see a flash of the dark default.
+      (function () {
+        try {
+          if (localStorage.getItem("mayfair-theme") === "light") {
+            document.documentElement.dataset.theme = "light";
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="%%SITE_URL%%/reserve.html" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="%%SITE_LOCALE%%" />
+    <meta property="og:site_name" content="%%SITE_NAME%%" />
+    <meta property="og:title" content="Reservations | %%SITE_NAME%%" />
+    <meta property="og:description" content="Request a table, a room or a private experience at %%SITE_NAME%%. Personal confirmation, no payment and no obligation." />
+    <meta property="og:url" content="%%SITE_URL%%/reserve.html" />
+    <meta property="og:image" content="%%SITE_URL%%/assets/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Sample photograph of the warm, elegant %%SITE_NAME%% interior" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Reservations | %%SITE_NAME%%" />
+    <meta name="twitter:description" content="Request a table, a room or a private experience at %%SITE_NAME%%. Personal confirmation, no payment and no obligation." />
+    <meta name="twitter:image" content="%%SITE_URL%%/assets/images/og-image.jpg" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" href="/assets/fonts/cormorant-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/manrope-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <script>document.documentElement.classList.add('js');</script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+<svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" /></symbol>
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" /></symbol>
+      <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" /></symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92Z" /></symbol>
+      <symbol id="icon-message" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.6 9.6 0 0 1-3.8-.9L3 21l1.9-5.1A8.4 8.4 0 0 1 4 11.5a8.5 8.5 0 0 1 17 0Z" /><path d="M8.5 9.2c.7 2.2 2.1 3.6 4.3 4.3M13 13.4l1.5-1.5M8.5 9.2l1.5-1.5" /></symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M8 3v4M16 3v4M3 10h18" /></symbol>
+      <symbol id="icon-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></symbol>
+      <symbol id="icon-wifi" viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0M2 9a14 14 0 0 1 20 0M8.5 16a5 5 0 0 1 7 0" /><circle cx="12" cy="20" r=".8" fill="currentColor" stroke="none" /></symbol>
+      <symbol id="icon-coffee" viewBox="0 0 24 24"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8ZM17 10h1a3 3 0 0 1 0 6h-2M3 22h16M7 2v3M11 2v3" /></symbol>
+      <symbol id="icon-tv" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" /><path d="m8 2 4 3 4-3" /></symbol>
+      <symbol id="icon-shower" viewBox="0 0 24 24"><path d="M4 21V5a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3M7 8h8a4 4 0 0 1 4 4H3a4 4 0 0 1 4-4ZM6 15v1M11 15v1M16 15v1M6 19v1M11 19v1M16 19v1" /></symbol>
+      <symbol id="icon-bed" viewBox="0 0 24 24"><path d="M2 4v16M2 16h20v4M2 11h20v5M6 11V7h6a4 4 0 0 1 4 4" /></symbol>
+      <symbol id="icon-size" viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5M3 8l6-6M21 8l-6-6M3 16l6 6M21 16l-6 6" /></symbol>
+      <symbol id="icon-sparkle" viewBox="0 0 24 24"><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3ZM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z" /></symbol>
+      <symbol id="icon-car" viewBox="0 0 24 24"><path d="m5 11 2-5h10l2 5M3 13a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5H3v-5ZM5 18v3M19 18v3" /><circle cx="7" cy="14.5" r="1" /><circle cx="17" cy="14.5" r="1" /></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" /><path d="M12 2.2v2.3M12 19.5v2.3M2.2 12h2.3M19.5 12h2.3M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" /></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.6 8.6 0 1 0 11 11Z" /></symbol>
+    </svg>
+
+    <header class="site-header" data-site-header>
+      <div class="nav-shell container-wide">
+        <a class="brand" href="/" aria-label="%%SITE_NAME%% home">
+          <img src="/favicon.svg" width="42" height="42" alt="" />
+          <span class="brand-copy">
+            <span class="brand-name">%%SITE_NAME%%</span>
+            <span class="brand-location">Ibadan · Nigeria</span>
+          </span>
+        </a>
+        <div class="nav-actions">
+          <a class="button button-small button-gold nav-reserve" href="/reserve.html?booking=table" data-booking="table">Reserve</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+            <svg class="icon theme-icon-moon" aria-hidden="true"><use href="#icon-moon" /></svg>
+            <svg class="icon theme-icon-sun" aria-hidden="true"><use href="#icon-sun" /></svg>
+            <span class="theme-toggle-text" data-theme-text>Light mode</span>
+          </button>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation" data-menu-toggle>
+            <span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span></span><span class="menu-toggle-label">Menu</span>
+          </button>
+        </div>
+      </div>
+      <div class="nav-panel" id="site-menu" data-nav-panel hidden>
+        <div class="nav-panel-inner">
+          <div class="nav-panel-topline"><span>Explore %%SITE_SHORT_NAME%%</span><small>Five experiences · one address</small></div>
+          <div class="nav-panel-body">
+            <nav class="nav-panel-nav" aria-label="Main navigation">
+              <p class="nav-panel-label">Experiences</p>
+              <div class="nav-panel-venues">
+                <a href="/restaurant.html"><span>01</span><strong>Restaurant</strong><small>Dining &amp; drinks</small></a>
+                <a href="/open-lounge.html"><span>02</span><strong>Open Lounge Bar</strong><small>Open-air evenings</small></a>
+                <a href="/vvip.html"><span>03</span><strong>VVIP Bar</strong><small>Private celebrations</small></a>
+                <a href="/snooker.html"><span>04</span><strong>Snooker Lounge</strong><small>Tables &amp; late frames</small></a>
+                <a href="/rooms.html"><span>05</span><strong>Hotel Rooms</strong><small>Stay the night</small></a>
+              </div>
+              <p class="nav-panel-label">Visit</p>
+              <div class="nav-panel-links">
+                <a href="/">Home</a>
+                <a href="/index.html#weekly-nights">Weekly nights</a>
+                <a href="/gallery.html">Photo gallery</a>
+                <a href="/contact.html">Contact &amp; hours</a>
+              </div>
+            </nav>
+            <div class="nav-panel-footer">
+              <div class="nav-panel-bookings">
+                <a href="/reserve.html?booking=table" class="button button-gold" data-booking="table">Reserve a table</a>
+                <a href="/reserve.html?booking=room" class="button button-outline" data-booking="room">Book a room</a>
+              </div>
+              <a href="/reserve.html?booking=experience" class="nav-panel-enquiry" data-booking="experience">VVIP or snooker enquiry <svg class="icon"><use href="#icon-arrow" /></svg></a>
+              <div class="nav-panel-contact">
+                <a href="tel:%%PHONE%%"><svg class="icon"><use href="#icon-phone" /></svg> %%PHONE_DISPLAY%%</a>
+                <a href="https://wa.me/%%WHATSAPP%%?text=Hello%20%%SITE_SHORT_NAME%%%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener"><svg class="icon"><use href="#icon-message" /></svg> WhatsApp us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
+    <main id="main-content" class="page-main">
+<section class="booking-section section" id="reserve" aria-labelledby="booking-title">
+        <div class="container booking-grid">
+          <div class="booking-intro reveal">
+            <p class="section-kicker"><span>06</span> Reservations</p>
+            <h1 id="booking-title">Your evening.<br /><em>Let’s make it yours.</em></h1>
+            <p>Send a request in under a minute. Our team will contact you to confirm the details—no payment, no live availability, no obligation.</p>
+            <div class="booking-contact"><span>Prefer to speak?</span><a href="tel:%%PHONE%%"><svg class="icon"><use href="#icon-phone" /></svg> %%PHONE_DISPLAY%%</a><small>Reservations, room enquiries & WhatsApp</small></div>
+            <div class="booking-assurance"><svg class="icon"><use href="#icon-check" /></svg><p>Clear request. Personal confirmation.<br />Your booking is only confirmed when our team contacts you.</p></div>
+          </div>
+
+          <div class="booking-card reveal reveal-delay-1">
+            <div class="tabs booking-tabs" data-tabs id="booking-tabs">
+              <div class="tab-list" role="tablist" aria-label="Reservation and enquiry forms">
+                <button role="tab" id="tab-booking-table" aria-controls="booking-table" aria-selected="true" data-tab-target="booking-table">Table</button>
+                <button role="tab" id="tab-booking-room" aria-controls="booking-room" aria-selected="false" tabindex="-1" data-tab-target="booking-room">Room</button>
+                <button role="tab" id="tab-booking-experience" aria-controls="booking-experience" aria-selected="false" tabindex="-1" data-tab-target="booking-experience">VVIP / Snooker</button>
+              </div>
+
+              <div class="booking-panel" role="tabpanel" id="booking-table" aria-labelledby="tab-booking-table">
+                <div class="form-heading"><p class="eyebrow">Table reservation</p><h3>Where should we set your table?</h3></div>
+                <form name="table-reservation" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" data-booking-form="table">
+                  <input type="hidden" name="form-name" value="table-reservation" />
+                  <p class="honeypot"><label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+                  <div class="form-grid">
+                    <div class="field field-full"><label for="table-venue">Venue</label><select id="table-venue" name="venue" required><option value="Restaurant">Restaurant</option><option value="Open Lounge Bar">Open Lounge Bar</option></select><span class="field-error" id="table-venue-error"></span></div>
+                    <div class="field"><label for="table-name">Full name</label><input id="table-name" name="name" type="text" autocomplete="name" required minlength="2" placeholder="Your name" aria-describedby="table-name-error" /><span class="field-error" id="table-name-error"></span></div>
+                    <div class="field"><label for="table-phone">Phone / WhatsApp</label><input id="table-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="Your number, incl. country code" aria-describedby="table-phone-error" /><span class="field-error" id="table-phone-error"></span></div>
+                    <div class="field field-full"><label for="table-email">Email <span>(optional)</span></label><input id="table-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="table-email-error" /><span class="field-error" id="table-email-error"></span></div>
+                    <div class="field"><label for="table-date">Date</label><input id="table-date" name="date" type="date" required data-future-date aria-describedby="table-date-error" /><span class="field-error" id="table-date-error"></span></div>
+                    <div class="field"><label for="table-time">Time</label><input id="table-time" name="time" type="time" required aria-describedby="table-time-error" /><span class="field-error" id="table-time-error"></span></div>
+                    <div class="field"><label for="table-guests">Guests</label><select id="table-guests" name="guests" required><option value="">Select</option><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6 guests</option><option>7 guests</option><option>8 guests</option><option>9+ guests</option></select><span class="field-error" id="table-guests-error"></span></div>
+                    <div class="field"><label for="table-seating">Seating <span>(optional)</span></label><select id="table-seating" name="seating"><option value="No preference">No preference</option><option>Indoor</option><option>Open-air terrace</option><option>Quiet corner</option><option>Celebration table</option></select></div>
+                    <div class="field field-full"><label for="table-notes">Anything we should know? <span>(optional)</span></label><textarea id="table-notes" name="requests" rows="3" placeholder="Celebration, allergies, accessibility needs…"></textarea></div>
+                  </div>
+                  <div class="form-actions"><button class="button button-gold" type="submit">Send reservation request <svg class="icon"><use href="#icon-arrow" /></svg></button><a class="button button-whatsapp" href="https://wa.me/%%WHATSAPP%%" target="_blank" rel="noopener" data-whatsapp-form><svg class="icon"><use href="#icon-message" /></svg> Continue in WhatsApp</a></div>
+                  <p class="form-note">This sends a request, not an instant confirmation. <span data-preview-note></span></p>
+                  <div class="form-success" role="status" tabindex="-1" hidden><svg class="icon"><use href="#icon-check" /></svg><div><strong>Thank you, <span data-success-name>we have your request</span>.</strong><p data-success-message>Our team will contact you shortly to confirm your table.</p></div></div>
+                </form>
+              </div>
+
+              <div class="booking-panel" role="tabpanel" id="booking-room" aria-labelledby="tab-booking-room" hidden>
+                <div class="form-heading"><p class="eyebrow">Room enquiry</p><h3>When would you like to stay?</h3></div>
+                <form name="room-enquiry" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" data-booking-form="room">
+                  <input type="hidden" name="form-name" value="room-enquiry" />
+                  <p class="honeypot"><label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+                  <div class="form-grid">
+                    <div class="field field-full"><label for="room-type">Room preference</label><select id="room-type" name="roomType" required><option value="">Choose a room</option><option>Standard Room</option><option>Deluxe Room</option><option>%%SITE_SHORT_NAME%% Suite</option><option>No preference — advise me</option></select><span class="field-error" id="room-type-error"></span></div>
+                    <div class="field"><label for="room-checkin">Check-in</label><input id="room-checkin" name="checkIn" type="date" required data-checkin aria-describedby="room-checkin-error" /><span class="field-error" id="room-checkin-error"></span></div>
+                    <div class="field"><label for="room-checkout">Check-out</label><input id="room-checkout" name="checkOut" type="date" required data-checkout aria-describedby="room-checkout-error" /><span class="field-error" id="room-checkout-error"></span></div>
+                    <div class="field"><label for="room-guests">Guests</label><select id="room-guests" name="guests" required><option value="">Select</option><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5+ guests</option></select><span class="field-error" id="room-guests-error"></span></div>
+                    <div class="field"><label for="room-count">Rooms</label><select id="room-count" name="rooms" required><option value="1 room">1 room</option><option value="2 rooms">2 rooms</option><option value="3 rooms">3 rooms</option><option value="4+ rooms">4+ rooms</option></select></div>
+                    <div class="field"><label for="room-name">Full name</label><input id="room-name" name="name" type="text" autocomplete="name" required minlength="2" placeholder="Your name" aria-describedby="room-name-error" /><span class="field-error" id="room-name-error"></span></div>
+                    <div class="field"><label for="room-phone">Phone / WhatsApp</label><input id="room-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="Your contact number" aria-describedby="room-phone-error" /><span class="field-error" id="room-phone-error"></span></div>
+                    <div class="field field-full"><label for="room-email">Email</label><input id="room-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" aria-describedby="room-email-error" /><span class="field-error" id="room-email-error"></span></div>
+                    <div class="field field-full"><label for="room-notes">Stay notes <span>(optional)</span></label><textarea id="room-notes" name="requests" rows="3" placeholder="Arrival time, extra bed, accessibility needs…"></textarea></div>
+                  </div>
+                  <div class="form-actions"><button class="button button-gold" type="submit">Send room enquiry <svg class="icon"><use href="#icon-arrow" /></svg></button><a class="button button-whatsapp" href="https://wa.me/%%WHATSAPP%%" target="_blank" rel="noopener" data-whatsapp-form><svg class="icon"><use href="#icon-message" /></svg> Continue in WhatsApp</a></div>
+                  <p class="form-note">Rates and availability are confirmed personally. <span data-preview-note></span></p>
+                  <div class="form-success" role="status" tabindex="-1" hidden><svg class="icon"><use href="#icon-check" /></svg><div><strong>Thank you, <span data-success-name>we have your request</span>.</strong><p data-success-message>Our stay team will check your dates and reply with availability.</p></div></div>
+                </form>
+              </div>
+
+              <div class="booking-panel" role="tabpanel" id="booking-experience" aria-labelledby="tab-booking-experience" hidden>
+                <div class="form-heading"><p class="eyebrow">VVIP / Snooker enquiry</p><h3>What can we arrange for you?</h3></div>
+                <form name="experience-enquiry" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field" data-booking-form="experience">
+                  <input type="hidden" name="form-name" value="experience-enquiry" />
+                  <p class="honeypot"><label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+                  <div class="form-grid">
+                    <div class="field field-full"><label for="experience-interest">I’m interested in</label><select id="experience-interest" name="interest" required><option value="VVIP Bar">VVIP Bar</option><option value="Snooker Lounge">Snooker Lounge</option><option value="VVIP Bar + Snooker Lounge">VVIP + Snooker</option></select><span class="field-error" id="experience-interest-error"></span></div>
+                    <div class="field"><label for="experience-name">Full name</label><input id="experience-name" name="name" type="text" autocomplete="name" required minlength="2" placeholder="Your name" aria-describedby="experience-name-error" /><span class="field-error" id="experience-name-error"></span></div>
+                    <div class="field"><label for="experience-phone">Phone / WhatsApp</label><input id="experience-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="Your contact number" aria-describedby="experience-phone-error" /><span class="field-error" id="experience-phone-error"></span></div>
+                    <div class="field field-full"><label for="experience-email">Email <span>(optional)</span></label><input id="experience-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="experience-email-error" /><span class="field-error" id="experience-email-error"></span></div>
+                    <div class="field"><label for="experience-date">Preferred date</label><input id="experience-date" name="date" type="date" required data-future-date aria-describedby="experience-date-error" /><span class="field-error" id="experience-date-error"></span></div>
+                    <div class="field"><label for="experience-time">Preferred time</label><input id="experience-time" name="time" type="time" required aria-describedby="experience-time-error" /><span class="field-error" id="experience-time-error"></span></div>
+                    <div class="field field-full"><label for="experience-guests">Party size</label><select id="experience-guests" name="guests" required><option value="">Select party size</option><option>1–2 guests</option><option>3–4 guests</option><option>5–8 guests</option><option>9–15 guests</option><option>16+ guests</option></select><span class="field-error" id="experience-guests-error"></span></div>
+                    <div class="field field-full"><label for="experience-notes">Tell us about your plans <span>(optional)</span></label><textarea id="experience-notes" name="requests" rows="3" placeholder="Occasion, table package, number of snooker tables…"></textarea></div>
+                  </div>
+                  <div class="form-actions"><button class="button button-gold" type="submit">Send enquiry <svg class="icon"><use href="#icon-arrow" /></svg></button><a class="button button-whatsapp" href="https://wa.me/%%WHATSAPP%%" target="_blank" rel="noopener" data-whatsapp-form><svg class="icon"><use href="#icon-message" /></svg> Continue in WhatsApp</a></div>
+                  <p class="form-note">Our host will confirm availability and any minimum spend. <span data-preview-note></span></p>
+                  <div class="form-success" role="status" tabindex="-1" hidden><svg class="icon"><use href="#icon-check" /></svg><div><strong>Thank you, <span data-success-name>we have your request</span>.</strong><p data-success-message>Your host will be in touch to shape the evening with you.</p></div></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+<footer class="site-footer">
+      <div class="container footer-top"><div><a class="brand footer-brand" href="/"><img src="/favicon.svg" width="48" height="48" alt="" /><span class="brand-name">%%SITE_NAME%%</span></a><p>Five experiences. One address.<br />Evenings worth staying for.</p></div><div class="footer-nav"><div><h3>Explore</h3><a href="/restaurant.html">Restaurant</a><a href="/open-lounge.html">Open Lounge</a><a href="/vvip.html">VVIP Bar</a><a href="/snooker.html">Snooker</a><a href="/rooms.html">Hotel Rooms</a></div><div><h3>Plan</h3><a href="/reserve.html?booking=table" data-booking="table">Reserve a table</a><a href="/reserve.html?booking=room" data-booking="room">Room enquiry</a><a href="/reserve.html?booking=experience" data-booking="experience" data-interest="VVIP Bar">VVIP reservations</a><a href="/contact.html">Contact & hours</a></div></div></div>
+      <div class="container footer-bottom"><p>© <span data-current-year>2026</span> %%SITE_NAME%%. All rights reserved.</p><p class="demo-disclosure">Concept website · All copy, prices, testimonials and photography are samples for replacement.</p><a href="/">Back to top <svg class="icon"><use href="#icon-arrow-up" /></svg></a></div>
+    </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/%%WHATSAPP%%?text=Hello%20%%SITE_SHORT_NAME%%%2C%20I%27d%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" aria-label="Chat with %%SITE_NAME%% on WhatsApp" data-floating-whatsapp><svg class="icon"><use href="#icon-message" /></svg><span>WhatsApp us</span><i></i></a>
+
+    <dialog class="lightbox" data-lightbox aria-label="Photo gallery">
+      <div class="lightbox-inner">
+        <button type="button" class="lightbox-close" data-lightbox-close aria-label="Close gallery"><svg class="icon"><use href="#icon-close" /></svg></button>
+        <button type="button" class="lightbox-nav lightbox-prev" data-lightbox-prev aria-label="Previous photograph"><svg class="icon"><use href="#icon-chevron-left" /></svg></button>
+        <figure><img data-lightbox-image src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" /><figcaption><span data-lightbox-caption-text></span><small>Sample photography · replace before launch</small></figcaption></figure>
+        <button type="button" class="lightbox-nav lightbox-next" data-lightbox-next aria-label="Next photograph"><svg class="icon"><use href="#icon-chevron-right" /></svg></button>
+      </div>
+    </dialog>
+  </body>
+</html>
