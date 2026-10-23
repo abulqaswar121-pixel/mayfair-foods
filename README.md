@@ -107,8 +107,9 @@ site.config.js              Central business details and hours
 index.html                  Main content, SEO, schema and Netlify forms
 404.html                    Branded not-found page
 thanks.html                 No-JavaScript Netlify success page
-src/styles.css              Responsive luxury theme
+src/styles.css              Responsive luxury theme, dark + light palettes
 src/main.js                 Browser entry point
+src/theme.js                Dark/light switch, remembered per browser
 src/site.js                 Contact links, map and live opening status
 src/hours.js                Opening-hours calculations and schema helpers
 src/ui.js                   Navigation, tabs, galleries, lightbox and carousel

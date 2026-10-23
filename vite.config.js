@@ -86,8 +86,8 @@ const generatedFiles = {
       description: site.description,
       start_url: "/",
       display: "standalone",
-      background_color: "#f8f4ec",
-      theme_color: "#1a1712",
+      background_color: "#0b0b0a",
+      theme_color: "#0b0b0a",
       icons: [
         { src: "/favicon-192.png", sizes: "192x192", type: "image/png" },
         { src: "/favicon-512.png", sizes: "512x512", type: "image/png" },
