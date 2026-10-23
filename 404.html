@@ -1,17 +1,27 @@
 <!doctype html>
-<html lang="en-NG">
+<html lang="en-NG" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page not found | %%SITE_NAME%%</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="theme-color" content="#f8f4ec" />
+    <meta name="theme-color" content="#0b0b0a" />
+    <meta name="color-scheme" content="dark light" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("mayfair-theme") === "light") {
+            document.documentElement.dataset.theme = "light";
+          }
+        } catch (error) {}
+      })();
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <script>document.documentElement.classList.add('js');</script>
     <script type="module" src="/src/main.js"></script>
   </head>
   <body class="simple-page">
-    <header class="simple-header container-wide"><a class="brand" href="/" aria-label="%%SITE_NAME%% home"><img src="/favicon.svg" width="42" height="42" alt="" /><span class="brand-copy"><span class="brand-name">%%SITE_NAME%%</span><span class="brand-location">Ibadan · Nigeria</span></span></a><a class="text-link" href="/">Back to home</a></header>
+    <header class="simple-header container-wide"><a class="brand" href="/" aria-label="%%SITE_NAME%% home"><img src="/favicon.svg" width="42" height="42" alt="" /><span class="brand-copy"><span class="brand-name">%%SITE_NAME%%</span><span class="brand-location">Ibadan · Nigeria</span></span></a><div class="simple-header-actions"><a class="text-link" href="/">Back to home</a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme"><svg class="icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.6 8.6 0 1 0 11 11Z" /></svg><svg class="icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" /><path d="M12 2.2v2.3M12 19.5v2.3M2.2 12h2.3M19.5 12h2.3M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" /></svg><span class="theme-toggle-text" data-theme-text>Light mode</span></button></div></header>
     <main class="simple-page-main">
       <img class="simple-page-bg" src="/assets/images/sample-vvip-suite-1200.webp" alt="" fetchpriority="high" />
       <div class="simple-page-shade"></div>

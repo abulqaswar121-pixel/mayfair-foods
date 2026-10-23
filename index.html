@@ -1,12 +1,23 @@
 <!doctype html>
-<html lang="en-NG">
+<html lang="en-NG" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>%%SITE_NAME%% | Restaurant, Lounges & Boutique Stays in Ibadan</title>
     <meta name="description" content="%%SITE_DESCRIPTION%%" />
-    <meta name="theme-color" content="#f8f4ec" />
-    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#0b0b0a" />
+    <meta name="color-scheme" content="dark light" />
+    <script>
+      // Apply a remembered theme before first paint, so light-theme
+      // visitors never see a flash of the dark default.
+      (function () {
+        try {
+          if (localStorage.getItem("mayfair-theme") === "light") {
+            document.documentElement.dataset.theme = "light";
+          }
+        } catch (error) {}
+      })();
+    </script>
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="%%SITE_URL%%/" />
 
@@ -69,6 +80,8 @@
       <symbol id="icon-sparkle" viewBox="0 0 24 24"><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3ZM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z" /></symbol>
       <symbol id="icon-car" viewBox="0 0 24 24"><path d="m5 11 2-5h10l2 5M3 13a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5H3v-5ZM5 18v3M19 18v3" /><circle cx="7" cy="14.5" r="1" /><circle cx="17" cy="14.5" r="1" /></symbol>
       <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" /><path d="M12 2.2v2.3M12 19.5v2.3M2.2 12h2.3M19.5 12h2.3M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" /></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.6 8.6 0 1 0 11 11Z" /></symbol>
     </svg>
 
     <header class="site-header" data-site-header>
@@ -103,6 +116,11 @@
         </nav>
         <div class="nav-actions">
           <a class="button button-small button-gold nav-reserve" href="#reserve" data-booking="table">Reserve</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch to light theme">
+            <svg class="icon theme-icon-moon" aria-hidden="true"><use href="#icon-moon" /></svg>
+            <svg class="icon theme-icon-sun" aria-hidden="true"><use href="#icon-sun" /></svg>
+            <span class="theme-toggle-text" data-theme-text>Light mode</span>
+          </button>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation" data-menu-toggle>
             <span class="menu-toggle-lines" aria-hidden="true"><span></span><span></span></span><span class="menu-toggle-label">Menu</span>
           </button>
