@@ -14,7 +14,7 @@ export default {
   tagline: "Evenings worth staying for.",
   description:
     "A refined Ibadan destination for dining, open-air lounges, VVIP evenings, snooker and restful boutique stays.",
-  siteUrl: "https://mayfairfoods.netlify.app", // SAMPLE — use the final domain.
+  siteUrl: "https://mayfairfoods.lovable.app",
   locale: "en_NG",
   timeZone: "Africa/Lagos",
 
